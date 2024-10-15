@@ -14,7 +14,7 @@ public class FeedbackUpdate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
 		// Handle GET request to load feedback for editing
@@ -33,28 +33,31 @@ public class FeedbackUpdate extends HttpServlet {
         dis.forward(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//doGet(request, response);
-		
-		// Handle POST request to update feedback
-        int cusid = Integer.parseInt(request.getParameter("cusid"));
-        int stars = Integer.parseInt(request.getParameter("stars"));
-        String feedbackText = request.getParameter("feedback");
-
-        // Update feedback in the database using cusid
-        boolean isUpdated = CustomerDBUtil.updateFeedback(stars, feedbackText, cusid);
-        
-        List<Feedback> fbDetails = CustomerDBUtil.getFeedback(cusid);
-		request.setAttribute("fbDetails", fbDetails);
-
-        // Redirect to allfeedbacks.jsp page after update
-        if (isUpdated) {
-            RequestDispatcher dis = request.getRequestDispatcher("allfeedbacks.jsp");
-            dis.forward(request, response);
-        } else {
-            RequestDispatcher dis2 = request.getRequestDispatcher("unsuccess.jsp");
-            dis2.forward(request, response);
-        }
-	}
+//	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		//doGet(request, response);
+//		
+//		// Handle POST request to update feedback
+//        int cusid = Integer.parseInt(request.getParameter("cusid"));
+//        int stars = Integer.parseInt(request.getParameter("stars"));
+//        String feedbackText = request.getParameter("feedback");
+//
+//        // Update feedback in the database using cusid
+//        boolean isUpdated = CustomerDBUtil.updateFeedback(stars, feedbackText, cusid);
+//        
+//        List<Feedback> fbDetails = CustomerDBUtil.getFeedback(cusid);
+//		request.setAttribute("fbDetails", fbDetails);
+//		
+//		List<Feedback> fbDetailsAll = CustomerDBUtil.getAllFeedbacks();
+//		request.setAttribute("fbDetailsAll", fbDetailsAll);
+//
+//        // Redirect to allfeedbacks.jsp page after update
+//        if (isUpdated) {
+//            RequestDispatcher dis = request.getRequestDispatcher("allfeedbacks.jsp");
+//            dis.forward(request, response);
+//        } else {
+//            RequestDispatcher dis2 = request.getRequestDispatcher("unsuccess.jsp");
+//            dis2.forward(request, response);
+//        }
+//	}
 
 }

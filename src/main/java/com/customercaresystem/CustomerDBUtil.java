@@ -78,7 +78,11 @@ public class CustomerDBUtil {
 			con = DBConnect.getConnection();
 			stmt = con.createStatement();
 			
-			String sql = "SELECT * FROM feedback WHERE cusid = " + cusid;
+			 String sql = "SELECT f.feid, f.feedback, f.stars, f.cusid, c.name AS customerName " +
+                     "FROM feedback f JOIN customer c ON f.cusid = c.id " +
+                     "WHERE f.cusid = " + cusid;
+			
+			//String sql = "SELECT * FROM feedback WHERE cusid = " + cusid;
 			rs = stmt.executeQuery(sql);		
 			
 			if(rs.next()) {
@@ -87,8 +91,9 @@ public class CustomerDBUtil {
 				String feedback = rs.getString(2);
 				int stars = rs.getInt(3);
 				int cusId = rs.getInt(4);
+				String cusName = rs.getString(5);
 				
-				Feedback f = new Feedback(feid, stars, feedback, cusId);
+				Feedback f = new Feedback(feid, stars, feedback, cusId, cusName);
 				fb.add(f);
 			}
 			
@@ -98,6 +103,38 @@ public class CustomerDBUtil {
 		
 		return fb;
 	}
+	
+	public static List<Feedback> getAllFeedbacks() {
+		
+	    ArrayList<Feedback> fb = new ArrayList<>();
+	    
+	    try {
+	        con = DBConnect.getConnection();
+	        stmt = con.createStatement();
+	        
+	        // Get all feedback including the current user's feedback
+	        String sql = "SELECT f.feid, f.feedback, f.stars, f.cusid, c.name AS customerName " +
+	        		"FROM feedback f JOIN customer c ON f.cusid = c.id";
+	        rs = stmt.executeQuery(sql);
+	        
+	        while (rs.next()) {
+	            int feid = rs.getInt(1);
+	            String feedback = rs.getString(2);
+	            int stars = rs.getInt(3);
+	            int cusId = rs.getInt(4);
+	            String cusName = rs.getString(5);
+	            
+	            Feedback f = new Feedback(feid, stars, feedback, cusId, cusName);
+	            fb.add(f);
+	        }
+	        
+	    } catch(Exception e) {
+	        e.printStackTrace();
+	    }
+	    
+	    return fb;
+	}
+
 	
 	public static boolean updateFeedback(int stars, String feedbackText, int cusid) {
 		
@@ -123,4 +160,27 @@ public class CustomerDBUtil {
 		
 		return isSuccess;
 	}
+	
+	public static boolean deleteFeedback(int cusid) {
+	    boolean isSuccess = false;
+
+	    try {
+	        // Establish database connection
+	        con = DBConnect.getConnection();
+	        stmt = con.createStatement();
+
+	        // Execute SQL to delete feedback
+	        String sql = "DELETE FROM feedback WHERE cusid = " + cusid;
+	        int rs = stmt.executeUpdate(sql);
+
+	        if (rs > 0) {
+	            isSuccess = true;
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+
+	    return isSuccess;
+	}
+
 }

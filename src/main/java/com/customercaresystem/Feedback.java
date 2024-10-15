@@ -5,12 +5,14 @@ public class Feedback {
 	private int stars;
 	private String feedback;
 	private int cusid;
+	private String cusname;
 	
-	public Feedback(int feid, int stars, String feedback, int cusid) {
+	public Feedback(int feid, int stars, String feedback, int cusid, String cusname) {
 		this.feid = feid;
 		this.stars = stars;
 		this.feedback = feedback;
 		this.cusid = cusid;
+		this.cusname = cusname;
 	}
 
 	public int getFeid() {
@@ -29,5 +31,7 @@ public class Feedback {
 		return cusid;
 	}
 	
-	
+	public String getCusname() {
+		return cusname;
+	}
 }

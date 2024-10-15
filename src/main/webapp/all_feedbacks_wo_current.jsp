@@ -3,9 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-	<title>All Feedbacks</title>
-	
+	<meta charset="UTF-8">
+	<title>All Other Feedbacks</title>
 	<style>
         .card {
             border: 1px solid #ccc;
@@ -23,33 +22,8 @@
     </style>
 </head>
 <body>
-	<h1>All Feedbacks</h1>
-
-    <c:set var="loggedUserFeedback" value="false" />
-    
-    <c:forEach var="fb" items="${fbDetailsAll}">
-        <c:if test="${fb.cusid == sessionScope.cusid}">
-            <div class="card user-feedback">
-                <h2>${fb.cusname} (You)</h2>
-                <p><strong>Feedback ID:</strong> ${fb.feid}</p>
-                <p><strong>Stars:</strong> ${fb.stars}</p>
-                <p><strong>Feedback:</strong> ${fb.feedback}</p>
-                <p><strong>CusID:</strong> ${fb.cusid}</p>
-                
-                <form action="FeedbackUpdate" method="post">
-                	<input type="hidden" name="cusid" value="${fb.cusid}">
-        			<button type="submit">Edit</button>
-    			</form>
-    			
-    			<form action="FeedbackDelete" method="post" onsubmit="return confirm('Are you sure you want to delete this feedback?');">
-            		<input type="hidden" name="cusid" value="${fb.cusid}">
-            		<button type="submit">Delete</button>
-               </form>
-               
-            </div>
-            <c:set var="loggedUserFeedback" value="true" />
-        </c:if>
-    </c:forEach>
+	<h1>All Other Feedbacks</h1>
+	
     <div class="feedback-list">
         <c:forEach var="fb" items="${fbDetailsAll}">
             <c:if test="${fb.cusid != sessionScope.cusid}">

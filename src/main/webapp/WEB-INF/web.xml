@@ -39,4 +39,34 @@
     <servlet-name>FeedbackUpdate</servlet-name>
     <url-pattern>/FeedbackUpdate</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>FeedbackView</display-name>
+    <servlet-name>FeedbackView</servlet-name>
+    <servlet-class>com.customercaresystem.FeedbackView</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FeedbackView</servlet-name>
+    <url-pattern>/FeedbackView</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>FeedbackUpdateCompleted</display-name>
+    <servlet-name>FeedbackUpdateCompleted</servlet-name>
+    <servlet-class>com.customercaresystem.FeedbackUpdateCompleted</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FeedbackUpdateCompleted</servlet-name>
+    <url-pattern>/FeedbackUpdateCompleted</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>FeedbackDelete</display-name>
+    <servlet-name>FeedbackDelete</servlet-name>
+    <servlet-class>com.customercaresystem.FeedbackDelete</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FeedbackDelete</servlet-name>
+    <url-pattern>/FeedbackDelete</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -88,12 +88,12 @@ textarea {
     margin: 0;
 }
 
-.card p:first-of-type {
+.p-stars-count {
     margin-top: 0;
     margin-bottom: 1px;
 }
 
-.card p:last-of-type {
+.p-feedback {
     margin-top: 10px; /* Increase the space before the feedback message */
     margin-bottom: 0;
 }
@@ -134,6 +134,7 @@ button {
     font-weight: bold;
     cursor: pointer;
     margin-top: 20px;
+    min-width: 100px;
 }
 
 button:hover {
@@ -146,3 +147,114 @@ button:hover {
     font-size: 20px;
     margin-right: 2px;
 }
+
+
+/*allfeedback.jsp page*/
+container-afb {
+    background-color: #f0f8ff; /* Light blue background for logged user's feedback */
+}
+
+.user-feedback-afb {
+    width: 100%; /* Shrink down the user's feedback to 50% width */
+    margin: 0 auto; /* Center it horizontally */
+    margin-bottom: 0;
+}
+
+.feedback-list-afb {
+    flex: 0 0 50%; /* Adjust width to match the user feedback size */
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 4px 4px 20px rgba(0,0,0,0.3);
+    background-color: white;
+    overflow-y: auto;
+    max-height: 300px;
+    width: 50%;
+    margin: 0 auto; /* Keep as scrollable and centered */
+}
+
+/* New class for the outer card containing the current user's feedback */
+.outer-current-user-fb {
+    max-width: 50%; /* Ensure it matches the feedback list card width */
+    margin: 0 auto; /* Center the outer card */
+    padding: 15px 20px; /* Match padding with feedback list */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 4px 4px 20px rgba(0,0,0,0.3); /* Shadow effect */
+    background-color: white; /* White background */
+    margin-bottom: 15px; /* Space below the card */
+}
+
+.feedback-list-afb h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.current-user-fb {
+    padding: 10px; /* Use same padding as other user feedback cards */
+    border-radius: 5px; /* Maintain rounded corners */
+    box-shadow: 4px 4px 20px rgba(0,0,0,0.2); /* Shadow effect to match other cards */
+    margin: 5px 0; /* Remove margin to keep it consistent with other cards */
+}
+
+.button-container {
+    display: flex; /* Use flexbox for button alignment */
+    justify-content: flex-start; /* Align to the left */
+    margin-top: 3px; /* Space between feedback and buttons */
+}
+
+.edit-button {
+    width: 100px; /* Set a specific width for the Edit button */
+    margin-right: 20px; /* Add margin to the right for spacing */
+    background-color: blue; /* Button color */
+    border: none;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.delete-button {
+    width: 100px; /* Set a specific width for the Delete button */
+    background-color: red; /* Button color */
+    border: none;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.edit-button:hover {
+    background-color: darkblue; /* Change color on hover */
+}
+
+.delete-button:hover {
+    background-color: darkred; /* Change color on hover */
+}
+
+.all-fb-heading {
+    text-align: center; /* Center the text */
+    margin-top: 0;
+    margin-bottom: 10px; /* Optional: Add some space below the heading */
+}
+
+.all-other-fb-heading {
+    text-align: center; /* Center the text */
+    margin-top: 5px;
+    margin-bottom: 10px; /* Optional: Add some space below the heading */
+}
+
+/* .card-afb {
+    background-color: white;
+    /*border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin: 15px 0;
+    box-shadow: 4px 4px 20px rgba(0,0,0,0.2);
+}
+
+.card-afb h3 {
+    margin: 0;
+} */
+
+

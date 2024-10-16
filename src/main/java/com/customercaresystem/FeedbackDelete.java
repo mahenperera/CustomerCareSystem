@@ -1,11 +1,13 @@
 package com.customercaresystem;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 
 public class FeedbackDelete extends HttpServlet {
@@ -18,9 +20,13 @@ public class FeedbackDelete extends HttpServlet {
         
         boolean isDeleted = CustomerDBUtil.deleteFeedback(cusid);
         
+        List<Feedback> fbDetailsAll = CustomerDBUtil.getAllFeedbacks();
+		request.setAttribute("fbDetailsAll", fbDetailsAll);
+        
         if (isDeleted) {
             // If feedback is successfully deleted, redirect to allfeedbacks.jsp
-            response.sendRedirect("feedback.jsp");
+        	RequestDispatcher dis = request.getRequestDispatcher("feedback.jsp");
+			dis.forward(request, response);
         } else {
             request.getRequestDispatcher("allfeedbacks.jsp").forward(request, response);
         }

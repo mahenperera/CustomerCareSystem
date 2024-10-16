@@ -47,8 +47,8 @@
 								<span class="gold-star">&#9733;</span>
 							</c:forEach>
 						</div>
-                   		<p><em>${fb.stars} Stars</em></p>
-                   		<p>${fb.feedback}</p>
+                   		<p class="p-stars-count"><em>${fb.stars} Stars</em></p>
+                   		<p class="p-feedback">${fb.feedback}</p>
                		</div>
            		</c:if>
        		</c:forEach>

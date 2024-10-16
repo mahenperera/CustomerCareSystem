@@ -16,14 +16,16 @@
 		<div class="feedback-form">
 			<div class="feedback-form-headings">
 				<h1>Feedback</h1>
-				<h4>Provide your valuable feedback for us</h4>
+				<h4>Provide your valuable feedback for us...</h4>
 			</div>
 			<form action="FeedbackInsert" method="post">
-	     		<div class="stars" onclick="selectStars(1)"></div>
-	     		<div class="stars" onclick="selectStars(2)"></div>
-	     		<div class="stars" onclick="selectStars(3)"></div>
-	     		<div class="stars" onclick="selectStars(4)"></div>
-	     		<div class="stars" onclick="selectStars(5)"></div>
+				<div class="star-section">
+					<div class="stars" onclick="selectStars(1)"></div>
+					<div class="stars" onclick="selectStars(2)"></div>
+					<div class="stars" onclick="selectStars(3)"></div>
+					<div class="stars" onclick="selectStars(4)"></div>
+					<div class="stars" onclick="selectStars(5)"></div>
+				</div>
 	     		<input type="hidden" name="stars" id="starsInput">
 				<div class="feedback-form-bottom-section">
 					<div class="fbText">
@@ -45,7 +47,7 @@
 								<span class="gold-star">&#9733;</span>
 							</c:forEach>
 						</div>
-                   		<p> ${fb.stars}<em> Stars</em></p>
+                   		<p><em>${fb.stars} Stars</em></p>
                    		<p>${fb.feedback}</p>
                		</div>
            		</c:if>

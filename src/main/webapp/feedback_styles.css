@@ -1,33 +1,42 @@
 body {
-	background-color: #ccc;
+	background-color: white;
 }
 
-/* Flexbox container to divide the screen */
 .container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    gap: 20px; /* Adds space between the sections */
-}
-
-.feedback-form, .feedback-list {
-    flex: 1; /* Make both sections take equal width */
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
-    background-color: white;
+    gap: 20px;
 }
 
 .feedback-form {
-    display: flex;                /* Use flexbox for centering */
-    flex-direction: column;       /* Arrange items vertically */
-    align-items: center;       /* Center items horizontally */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: white;
+    max-width: 50%;
+}
+
+.feedback-list {
+    flex: 0 0 30%; /* Add a fixed width (e.g., 35% of the container width) */
+    padding: 20px;
+    /*border: 1px solid #ccc;*/
+    border-radius: 5px;
+    box-shadow: 4px 4px 20px rgba(0,0,0,0.3);
+    background-color: white;
+    overflow-y: auto;
+    max-height: 500px;
+    margin-top: 65px;
+    margin-bottom: 65px;
+    margin-right:  150px;;
 }
 
 .feedback-form h1 {
     width: 100%;
-    margin-top: 100px;
+    margin-top: 70px;
     text-align: center;
     font-size: 48px;
 }
@@ -38,15 +47,23 @@ body {
 }
 
 .feedback-form-headings {
-    display: flex;                /* Use flexbox for centering */
-    flex-direction: column;       /* Arrange items vertically */
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
+.star-section {
+    margin: 0 60px;
+}
+
 .feedback-form-bottom-section {
-    display: flex;                /* Use flexbox for centering */
-    flex-direction: column;       /* Arrange items vertically */
+    display: flex;
+    flex-direction: column;
     align-items: center;
+}
+
+textarea {
+    font-size: 18px;
 }
 
 .fbText {
@@ -54,27 +71,31 @@ body {
     margin-top: 20px;
 }
 
-.feedback-list {
-    overflow-y: auto;
-    max-height: 630px; /* Limit the height of the feedback list and enable scrolling */
-}
-
-/* Styling for feedback cards */
 .card {
     background-color: white;
-    border: 1px solid #ccc;
+    /*border: 1px solid #ccc;*/
     border-radius: 5px;
-    padding: 15px;
-    margin: 10px 0;
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+    padding: 10px 15px;
+    margin: 15px 0;
+    box-shadow: 4px 4px 20px rgba(0,0,0,0.2);
 }
 
 .card h3 {
-    margin: 1px 0;                  /* Reduced margin for the customer name */
+    margin: 0;
 }
 
-.card p {
-    margin: 5px 0;                  /* Reduced margin for paragraphs (star count and feedback) */
+.stars-container {
+    margin: 0;
+}
+
+.card p:first-of-type {
+    margin-top: 0;
+    margin-bottom: 1px;
+}
+
+.card p:last-of-type {
+    margin-top: 10px; /* Increase the space before the feedback message */
+    margin-bottom: 0;
 }
 
 .stars {
@@ -121,7 +142,7 @@ button:hover {
 }
 
 .gold-star {
-    color: gold;               /* Color of the stars */
-    font-size: 20px;          /* Size of the stars */
-    margin-right: 2px;        /* Space between stars */
+    color: gold;
+    font-size: 20px;
+    margin-right: 2px;
 }

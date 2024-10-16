@@ -18,7 +18,7 @@
 				<h1>Feedback</h1>
 				<h4>Provide your valuable feedback for us...</h4>
 			</div>
-			<form action="FeedbackInsert" method="post">
+			<form id="feedbackForm" action="FeedbackInsert" method="post" onsubmit="return  validateForm()">
 				<div class="star-section">
 					<div class="stars" onclick="selectStars(1)"></div>
 					<div class="stars" onclick="selectStars(2)"></div>
@@ -37,7 +37,7 @@
 		</div>
 	
     	<div class="feedback-list">
-    		<h2>All Other Feedbacks</h2>
+    		<h2>Other User Feedbacks</h2>
        		<c:forEach var="fb" items="${fbDetailsAll}">
            		<c:if test="${fb.cusid != sessionScope.cusid}">
                		<div class="card">

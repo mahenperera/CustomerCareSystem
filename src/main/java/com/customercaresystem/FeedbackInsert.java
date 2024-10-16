@@ -32,9 +32,6 @@ public class FeedbackInsert extends HttpServlet {
 		
 		isTrue = CustomerDBUtil.insertFeedback(stars, feedback, cusid);
 		
-//		List<Customer> cusDetails = CustomerDBUtil.validate(username, password);
-//		request.setAttribute("cusDetails", cusDetails);
-		
 		List<Feedback> fbDetails = CustomerDBUtil.getFeedback(cusid);
 		request.setAttribute("fbDetails", fbDetails);
 		

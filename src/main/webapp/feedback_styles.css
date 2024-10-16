@@ -125,7 +125,7 @@ input[type="radio"] {
 }
 
 button {
-    background-color: darkblue;
+    background-color: blue;
     border: none;
     color: white;
     padding: 15px 20px;
@@ -138,7 +138,7 @@ button {
 }
 
 button:hover {
-    background-color: blue;
+    background-color: darkblue;
     color: white;
 }
 

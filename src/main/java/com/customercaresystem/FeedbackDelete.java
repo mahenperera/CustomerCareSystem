@@ -24,7 +24,6 @@ public class FeedbackDelete extends HttpServlet {
 		request.setAttribute("fbDetailsAll", fbDetailsAll);
         
         if (isDeleted) {
-            // If feedback is successfully deleted, redirect to allfeedbacks.jsp
         	RequestDispatcher dis = request.getRequestDispatcher("feedback.jsp");
 			dis.forward(request, response);
         } else {

@@ -40,14 +40,6 @@ public class LoginServlet extends HttpServlet {
                 
                 if (fbDetails != null && !fbDetails.isEmpty()) {
                     // User has already submitted feedback, redirect to all feedbacks page
-                	
-                	//List<Feedback> fbDetails = CustomerDBUtil.getFeedback(cusid);
-            		
-            		
-            		
-                	
-                    //response.sendRedirect("allfeedbacks.jsp");
-                    
                     RequestDispatcher dis = request.getRequestDispatcher("allfeedbacks.jsp");
     	    		dis.forward(request, response);
                     
@@ -57,22 +49,14 @@ public class LoginServlet extends HttpServlet {
                 	RequestDispatcher dis = request.getRequestDispatcher("feedback.jsp");
     	    		dis.forward(request, response);
                 }
-	            
-	            
 	        } else {
 	        	// Handle case where login fails (invalid username/password)
                 request.setAttribute("loginError", "Invalid username or password.");
                 RequestDispatcher dis = request.getRequestDispatcher("login.jsp"); // Adjust based on your login page
                 dis.forward(request, response);
 	        }
-			
-			
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-		
-		
-		
 	}
-
 }

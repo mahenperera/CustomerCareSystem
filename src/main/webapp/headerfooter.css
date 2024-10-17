@@ -1,0 +1,219 @@
+/* General reset and body styling remain unchanged */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background: linear-gradient(to right, #ffbb00, #cc33ff); 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.logo img {
+    height: 88px; /* Adjust this value to match the height of the header */
+}
+
+h1 {
+    flex-grow: 1;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	font-style:bold;
+    font-size: 36px;
+    color: black;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+}
+
+.icon-button {
+    text-decoration: none;
+    color: black;
+    font-size: 24px;
+    margin: 0 10px;
+}
+
+.icon-button:hover {
+    color: #007bff;
+}
+
+.logout-button {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.logout-button:hover {
+    background-color: #0056b3;
+}
+
+.home-button, .profile-button {
+    padding: 8px 15px;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+}
+
+.home-button:hover, .profile-button:hover {
+    background-color: #e0e0e0;
+}
+
+
+
+/* Main content remains unchanged */
+main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: white;
+}
+
+main p {
+    font-size: 18px;
+    text-align: center;
+}
+
+/* Footer styling remains unchanged */
+footer {
+    background-color: #3f3b97;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact-info a {
+    color: white;
+    text-decoration: underline;
+}
+
+.social-media a {
+    margin: 0 10px;
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.feedback-button {
+    background-color: #003f5c;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.feedback-button:hover {
+    background-color: #002945;
+}
+.b_social{
+    margin-right: 40px;
+  padding:0px;
+    border-style: none;
+}
+
+
+
+
+.fa-instagram{
+    font-size:40px;
+	background-color:#005f87;
+}
+.fa-instagram:hover{
+    opacity: 0.8;
+	 color: #007bff;
+}
+.fa-square-facebook{
+    font-size:40px;
+background-color:#005f87;	
+}
+.fa-square-facebook:hover{
+    opacity: 0.8;
+	 color: #007bff;
+}
+.fa-facebook-messenger{
+    font-size:40px;
+	background-color:#005f87;
+}
+.fa-facebook-messenger:hover{
+    opacity: 0.8;
+	 color: #007bff;
+}
+
+
+
+.icon-button {
+    background-color: #005f87; /* Button background color */
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    text-align: center;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.icon-button i {
+    margin-right: 0;
+}
+
+.icon-button:hover {
+    background-color: #003f5c; /* Change color on hover */
+}
+
+.logout-button {
+    background-color: #3f3b97;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.logout-button:hover {
+    background-color: #003f5c; /* Change color on hover */
+}
+
+.b_social {
+    color: white;
+    border-radius: 5px;
+}
+
+
+
+
+
+
+
+

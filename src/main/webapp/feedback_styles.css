@@ -34,11 +34,12 @@ body {
     margin-right:  150px;;
 }
 
-.feedback-form h1 {
+.feedback-form h2 {
     width: 100%;
     margin-top: 70px;
+    margin-bottom: 20px;
     text-align: center;
-    font-size: 48px;
+    font-size: 40px;
 }
 
 .feedback-form h4 {
@@ -69,6 +70,7 @@ textarea {
 .fbText {
     width: 100%;
     margin-top: 20px;
+    margin-left: 45px;
 }
 
 .card {
@@ -124,8 +126,8 @@ input[type="radio"] {
     display: none;
 }
 
-button {
-    background-color: blue;
+.button-fb {
+    background-color: #6c63ff;
     border: none;
     color: white;
     padding: 15px 20px;
@@ -137,9 +139,11 @@ button {
     min-width: 100px;
 }
 
-button:hover {
-    background-color: darkblue;
+.button-fb:hover {
+    /* background-color: darkblue; */
     color: white;
+    transform: translateY(-2px);
+    opacity: 0.7;
 }
 
 .gold-star {
@@ -167,9 +171,10 @@ container-afb {
     box-shadow: 4px 4px 20px rgba(0,0,0,0.3);
     background-color: white;
     overflow-y: auto;
-    max-height: 300px;
+    max-height: 450px;
     width: 50%;
     margin: 0 auto; /* Keep as scrollable and centered */
+    margin-bottom: 30px;
 }
 
 /* New class for the outer card containing the current user's feedback */
@@ -192,19 +197,19 @@ container-afb {
     padding: 10px; /* Use same padding as other user feedback cards */
     border-radius: 5px; /* Maintain rounded corners */
     box-shadow: 4px 4px 20px rgba(0,0,0,0.2); /* Shadow effect to match other cards */
-    margin: 5px 0; /* Remove margin to keep it consistent with other cards */
+    margin: 15px 0; /* Remove margin to keep it consistent with other cards */
 }
 
 .button-container {
     display: flex; /* Use flexbox for button alignment */
     justify-content: flex-start; /* Align to the left */
-    margin-top: 3px; /* Space between feedback and buttons */
+    margin-top: 5px; /* Space between feedback and buttons */
 }
 
 .edit-button {
     width: 100px; /* Set a specific width for the Edit button */
     margin-right: 20px; /* Add margin to the right for spacing */
-    background-color: blue; /* Button color */
+    background-color: #6c63ff; /* Button color */
     border: none;
     color: white;
     padding: 15px 20px;
@@ -225,17 +230,20 @@ container-afb {
 }
 
 .edit-button:hover {
-    background-color: darkblue; /* Change color on hover */
+    transform: translateY(-2px);
+    opacity: 0.7;; /* Change color on hover */
 }
 
 .delete-button:hover {
-    background-color: darkred; /* Change color on hover */
+    transform: translateY(-2px);
+    opacity: 0.7;; /* Change color on hover */
 }
 
 .all-fb-heading {
     text-align: center; /* Center the text */
-    margin-top: 0;
+    margin-top: 20px;
     margin-bottom: 10px; /* Optional: Add some space below the heading */
+    font-size: 32px;
 }
 
 .all-other-fb-heading {
@@ -244,17 +252,29 @@ container-afb {
     margin-bottom: 10px; /* Optional: Add some space below the heading */
 }
 
-/* .card-afb {
-    background-color: white;
-    /*border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px 15px;
-    margin: 15px 0;
-    box-shadow: 4px 4px 20px rgba(0,0,0,0.2);
+.apply-changes-button {
+    width: 150px; /* Set a specific width for the Edit button */
+    margin-right: 20px; /* Add margin to the right for spacing */
+    background-color: #6c63ff; /* Button color */
+    border: none;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
 }
 
-.card-afb h3 {
-    margin: 0;
-} */
+.apply-changes-button:hover {
+    color: white;
+    transform: translateY(-2px);
+    opacity: 0.7;
+}
 
+#fbMsg {
+    padding: 5px;
+}
 
+.char-counter {
+    color: gray;
+}

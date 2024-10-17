@@ -21,11 +21,13 @@ public class FeedbackUpdate extends HttpServlet {
         
         System.out.println(cusid);
 
+        FeedbackDBUtilInterface fbCtrl = new CustomerDBUtil();
+        
         // Fetch feedback details from the database using customer ID (cusid)
-        List<Feedback> feedback = CustomerDBUtil.getFeedback(cusid);
+        List<Feedback> feedback = fbCtrl.getFeedback(cusid);
         request.setAttribute("feedbackForUpdate", feedback);
         
-        List<Feedback> fbDetailsAll = CustomerDBUtil.getAllFeedbacks();
+        List<Feedback> fbDetailsAll = fbCtrl.getAllFeedbacks();
 		request.setAttribute("fbDetailsAll", fbDetailsAll);
 
         // Forward to updatefeedback.jsp for editing

@@ -22,7 +22,9 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("pass");
 		
 		try {
-			List<Customer> cusDetails = CustomerDBUtil.validate(username, password);
+			FeedbackDBUtilInterface fbCtrl = new CustomerDBUtil();
+			
+			List<Customer> cusDetails = fbCtrl.validate(username, password);
 			request.setAttribute("cusDetails", cusDetails);
 			
 			if (!cusDetails.isEmpty()) {
@@ -32,10 +34,10 @@ public class LoginServlet extends HttpServlet {
 	            session.setAttribute("cusid", cusid);
 	            
 	         // Check if the user has already submitted feedback
-                List<Feedback> fbDetails = CustomerDBUtil.getFeedback(cusid);
+                List<Feedback> fbDetails = fbCtrl.getFeedback(cusid);
                 request.setAttribute("fbDetails", fbDetails);
                 
-                List<Feedback> fbDetailsAll = CustomerDBUtil.getAllFeedbacks();
+                List<Feedback> fbDetailsAll = fbCtrl.getAllFeedbacks();
         		request.setAttribute("fbDetailsAll", fbDetailsAll);
                 
                 if (fbDetails != null && !fbDetails.isEmpty()) {

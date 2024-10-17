@@ -16,7 +16,7 @@
 				<h1>Edit Feedback</h1>
 				<h4>Edit your feedback below and apply changes...</h4>
 			</div>
-			<form action="FeedbackUpdateCompleted" method="post">
+			<form action="FeedbackUpdateCompleted" method="post" onsubmit="return  validateForm()">
 				<div class="star-section">
 					<div class="stars" onclick="selectStars(1)"></div>
 					<div class="stars" onclick="selectStars(2)"></div>

@@ -7,17 +7,16 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomerDBUtil {
+public class CustomerDBUtil implements FeedbackDBUtilInterface {
 	
 	private static Connection con = null;
 	private static Statement stmt = null;
 	private static ResultSet rs = null;
 	
-	public static List<Customer> validate(String userName, String password) {
+	public List<Customer> validate(String userName, String password) {
 		
 		ArrayList<Customer> cus = new ArrayList<>();
 
-		
 		try {
 			con = DBConnect.getConnection();
 			stmt = con.createStatement();
@@ -44,7 +43,7 @@ public class CustomerDBUtil {
 		return cus;
 	}
 	
-	public static boolean insertFeedback(int stars, String feedback, int cusid) {
+	public boolean insertFeedback(int stars, String feedback, int cusid) {
 		
 		boolean isSuccess = false;
 		
@@ -70,7 +69,7 @@ public class CustomerDBUtil {
 		return isSuccess;
 	}
 	
-	public static List<Feedback> getFeedback(int cusid) {
+	public List<Feedback> getFeedback(int cusid) {
 		
 		ArrayList<Feedback> fb = new ArrayList<>();
 		
@@ -104,7 +103,7 @@ public class CustomerDBUtil {
 		return fb;
 	}
 	
-	public static List<Feedback> getAllFeedbacks() {
+	public List<Feedback> getAllFeedbacks() {
 		
 	    ArrayList<Feedback> fb = new ArrayList<>();
 	    
@@ -136,7 +135,7 @@ public class CustomerDBUtil {
 	}
 
 	
-	public static boolean updateFeedback(int stars, String feedbackText, int cusid) {
+	public boolean updateFeedback(int stars, String feedbackText, int cusid) {
 		
 		boolean isSuccess = false;
 		
@@ -161,7 +160,7 @@ public class CustomerDBUtil {
 		return isSuccess;
 	}
 	
-	public static boolean deleteFeedback(int cusid) {
+	public boolean deleteFeedback(int cusid) {
 	    boolean isSuccess = false;
 
 	    try {

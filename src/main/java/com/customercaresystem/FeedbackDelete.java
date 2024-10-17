@@ -18,9 +18,11 @@ public class FeedbackDelete extends HttpServlet {
         
         int cusid = Integer.parseInt(request.getParameter("cusid"));
         
-        boolean isDeleted = CustomerDBUtil.deleteFeedback(cusid);
+        FeedbackDBUtilInterface fbCtrl = new CustomerDBUtil();
         
-        List<Feedback> fbDetailsAll = CustomerDBUtil.getAllFeedbacks();
+        boolean isDeleted = fbCtrl.deleteFeedback(cusid);
+        
+        List<Feedback> fbDetailsAll = fbCtrl.getAllFeedbacks();
 		request.setAttribute("fbDetailsAll", fbDetailsAll);
         
         if (isDeleted) {

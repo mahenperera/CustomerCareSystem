@@ -30,16 +30,19 @@ public class FeedbackInsert extends HttpServlet {
 	        System.out.println("Error");
 	    }
 		
-		isTrue = CustomerDBUtil.insertFeedback(stars, feedback, cusid);
+	    FeedbackDBUtilInterface fbCtrl = new CustomerDBUtil();
+	    
+		isTrue = fbCtrl.insertFeedback(stars, feedback, cusid);
 		
-		List<Feedback> fbDetails = CustomerDBUtil.getFeedback(cusid);
+		List<Feedback> fbDetails = fbCtrl.getFeedback(cusid);
 		request.setAttribute("fbDetails", fbDetails);
 		
-		List<Feedback> fbDetailsAll = CustomerDBUtil.getAllFeedbacks();
+		List<Feedback> fbDetailsAll = fbCtrl.getAllFeedbacks();
 		request.setAttribute("fbDetailsAll", fbDetailsAll);
 		
 		
 		if(isTrue == true) {
+			request.setAttribute("insertSuccessMessage", "Feedback inserted successfully.");
 			RequestDispatcher dis = request.getRequestDispatcher("allfeedbacks.jsp");
 			dis.forward(request, response);
 		} else {

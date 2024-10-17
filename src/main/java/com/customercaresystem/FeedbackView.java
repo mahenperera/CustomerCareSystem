@@ -16,7 +16,9 @@ public class FeedbackView extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		List<Feedback> fbDetailsAll = CustomerDBUtil.getAllFeedbacks();
+		FeedbackDBUtilInterface fbCtrl = new CustomerDBUtil();
+		
+		List<Feedback> fbDetailsAll = fbCtrl.getAllFeedbacks();
 		request.setAttribute("fbDetailsAll", fbDetailsAll);
 
 		RequestDispatcher dis = request.getRequestDispatcher("all_feedbacks_wo_current.jsp");

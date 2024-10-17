@@ -20,18 +20,21 @@ public class FeedbackUpdateCompleted extends HttpServlet {
         int cusid = Integer.parseInt(request.getParameter("cusid"));
         int stars = Integer.parseInt(request.getParameter("stars"));
         String feedbackText = request.getParameter("feedback");
+        
+        FeedbackDBUtilInterface fbCtrl = new CustomerDBUtil();
 
         // Update feedback in the database using cusid
-        boolean isUpdated = CustomerDBUtil.updateFeedback(stars, feedbackText, cusid);
+        boolean isUpdated = fbCtrl.updateFeedback(stars, feedbackText, cusid);
         
-        List<Feedback> fbDetails = CustomerDBUtil.getFeedback(cusid);
+        List<Feedback> fbDetails = fbCtrl.getFeedback(cusid);
 		request.setAttribute("fbDetails", fbDetails);
 		
-		List<Feedback> fbDetailsAll = CustomerDBUtil.getAllFeedbacks();
+		List<Feedback> fbDetailsAll = fbCtrl.getAllFeedbacks();
 		request.setAttribute("fbDetailsAll", fbDetailsAll);
 
         // Redirect to allfeedbacks.jsp page after update
         if (isUpdated) {
+        	request.setAttribute("updateSuccessMessage", "Feedback updated successfully.");
             RequestDispatcher dis = request.getRequestDispatcher("allfeedbacks.jsp");
             dis.forward(request, response);
         } else {

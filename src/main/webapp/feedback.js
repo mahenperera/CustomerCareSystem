@@ -22,7 +22,7 @@ function validateForm() {
     }
 
     if (!feedbackValue) {
-        alert("Please enter your feedback before submitting."); // Show alert prompt
+        alert("Please type a feedback message before submitting your feedback."); // Show alert prompt
         return false; // Prevent form submission
     }
 

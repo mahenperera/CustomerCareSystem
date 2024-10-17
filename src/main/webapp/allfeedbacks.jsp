@@ -26,12 +26,12 @@
                             <p class="p-feedback">${fb.feedback}</p> 
                         </div> 
                         <div class="button-container">
-                            <form action="FeedbackUpdate" method="post">
+                            <form action="FeedbackUpdate" method="post" onsubmit="return confirm('Are you sure you want to edit your feedback?');">
                                 <input type="hidden" name="cusid" value="${fb.cusid}">
                                 <button type="submit" class="edit-button">Edit</button>  
                             </form>
                             
-                            <form action="FeedbackDelete" method="post" onsubmit="return confirm('Are you sure you want to delete this feedback?');">
+                            <form action="FeedbackDelete" method="post" onsubmit="return confirm('Are you sure you want to delete your feedback?');">
                                 <input type="hidden" name="cusid" value="${fb.cusid}">
                                 <button type="submit" class="delete-button">Delete</button>
                             </form>
@@ -59,6 +59,19 @@
             </c:forEach>
         </div>
     </div>
+    
+    <script>
+        // Check if the server passed a success message
+        const insertSuccessMessage = "${insertSuccessMessage}";
+        if (insertSuccessMessage) {
+            alert(insertSuccessMessage);
+        }
+        
+        const updateSuccessMessage = "${updateSuccessMessage}";
+        if (updateSuccessMessage) {
+            alert(updateSuccessMessage);
+        }
+    </script>
     
 </body>
 </html>
